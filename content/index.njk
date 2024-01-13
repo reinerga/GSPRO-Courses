@@ -1,0 +1,81 @@
+---
+layout: layout.njk
+title: GSP Courses - OPCD
+permalink: "/"
+---
+
+<h1 class="text-4xl font-bold tracking-tight">GSPro Courses</h1>
+
+<article class="my-3">
+    <h2 class="text-3xl font-bold tracking-tight">Courses</h2>
+    <ul class="grid grid-cols-1 md:grid-cols-3 gap-4 list-none px-0 mx-0">
+    {%- for course in collections.courses -%}
+        <li>
+            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 min-h-full">
+                <a href="{{ course.url | url }}">
+                    <img class="rounded-t-lg m-0" src="{{ (course.url + course.data.image) | url }}" alt="" />
+                </a>
+                <div class="p-4">
+                    <a href="{{ course.url | url }}" class="no-underline">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white no-underline">{{ course.data.title }} {% if 'beta' in course.data.tags %}(Beta){% endif %}</h5>
+                        <h6 class="mb-2 text-xl tracking-tight text-gray-700 dark:text-white no-underline">{{ course.data.location }}</h5>
+                    </a>
+                    <div class="mb-3 font-normal text-gray-700 dark:text-gray-400">Version: {{ course.data.gspro_version }}</div>
+
+                    {% if course.data.info %}<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ course.data.info }}</p>{% endif %}
+                </div>
+            </div>
+        </li>
+    {%- endfor -%}
+    </ul>
+    <blockquote>
+        Beta courses are available through <a href="{{ '/courses.json' | url }}" target="_blank">course list</a>.  Add this to your GSPro course server list for regular updates.
+    </blockquote>
+</article>
+
+<article class="my-3">
+    <h2 class="text-3xl font-bold tracking-tight">Resources</h2>
+    <p class="dark:text-white">
+        Here are a couple resoures that I've used/worked on while building out my courses.
+    </p>
+    <ul>
+        <li>
+            <h4>Distance Marker Layout</h4>
+            <p>
+                Provides a Distance Marker Layout script/prefab that allows for quick addition and measurement of distance markers.  Simply drag the prefab to a green, configure and create your markers, then drag them to their appropriate location.   Finally, apply them to the required terrain (if you wish).
+            </p>
+            <p>
+                <a href="https://1drv.ms/u/s!AqN33biz5OLCirdE2RanEYITYpLtcg" target="_blank">Download</a>
+            </p>
+        </li>
+        <li>
+            <h4>Bulk Vegetation Pro Colliders</h4>
+            <p>
+                Unity asset to configure (enable/disable) vegetation studio pro colliders.  After installed use the menu <strong>Tools / Bulk Collider Configure</strong>
+            </p>
+            <p>
+                <a href="https://1drv.ms/u/s!AqN33biz5OLCiuIp2RanEYITYpLtcg" target="_blank">Download</a>
+            </p>
+        </li>
+    </ul>
+</article>
+
+<article class="my-3">
+    <h2 class="text-3xl font-bold tracking-tight">About</h2>
+    <p class="dark:text-white">
+        I've always been a fan of virtual golf, and more recently I've been introduced to the Open Course Design process
+        for <a href="https://gsprogolf.com/" alt="Links to GSPro" target="_blank">GSPro</a> and I've slowly been starting 
+        to build a bunch of local courses in the GTA.   Although it would be nice to get some of them posted to the
+        <a href="https://simulatorgolftour.com/" target="_blank">Simulator Golf Tour</a> the majority will probably remain only available through this 
+        site.
+    </p>
+    <p>
+        Setup the <a href="{{ '/courses.json' | url }}" target="_blank">course list</a> using the following steps:
+        <ol>
+            <li>Open GSPro</li>
+            <li>Select <strong>Local Game</strong></li>
+            <li>In the top right corner of the Course List click the <strong>server/download</strong> button</li>
+            <li>Enter the address <a href="https://kenjdavidson.com/gspro-courses/courses.json"><strong>https://kenjdavidson.com/gspro-courses/courses.json</strong></a> and click <strong>Add Server</strong></li>
+        </ol>
+    </p>
+</article>
